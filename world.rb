@@ -27,9 +27,8 @@ class World
 
   def draw
     ret = ''
-    $stdout.flush
     cells.each do |row|
-      $stdout.write row.each { |cell| ret << (cell == live_cell ? live_cell : empty_cell) }.join('') + "\n"
+      row.each { |cell| ret << (cell == live_cell ? live_cell : empty_cell) }
     end
   end
 
