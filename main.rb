@@ -2,8 +2,6 @@
 
 require 'rubygems'
 require 'bundler/setup'
-require 'curses'
-include Curses
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 
 map = \
@@ -26,13 +24,10 @@ map = \
   "**.........................**\n"
 
 world = World.new(map: map)
-engine = Engine.new(world)
 screen = Screen.new
-
-world.draw(screen)
+engine = Engine.new(world, screen)
 
 while true
   engine.next_generation
-  world.draw(screen)
   sleep 0.1
 end

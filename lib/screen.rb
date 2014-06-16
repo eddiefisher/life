@@ -1,9 +1,13 @@
+require 'curses'
+include Curses
+
 class Screen
 	def initialize
     init_screen
     nl
     noecho
     srand
+    start_color
     
     for i in %w[HUP INT QUIT TERM]
       if trap(i, "SIG_IGN") != 0 then
@@ -12,9 +16,13 @@ class Screen
     end
   end
   
-  def print(x, y, string)
+  def print(x, y, string, color)
+    color = eval "COLOR_#{color.upcase}"
+    init_pair(color, color, COLOR_BLACK)
     setpos(x, y)
-    addstr(string)
+    attron(color_pair(color)|A_NORMAL) {
+      addstr(string)
+    }
   end
 
   def reload
