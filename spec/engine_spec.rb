@@ -11,7 +11,18 @@ describe Engine do
   screen = Screen.new
   engine = Engine.new(world, screen)
 
-  it "initialize engine" do
+  it ".generate(map)" do
     expect(engine.generate(world.map)).to eq(["*.**.", "..*..", "*.**."])
+  end
+
+  it ".next_generation" do
+    expect(engine.next_generation).to eq([
+      [" ", "*", "*", "*", " "],
+      [" ", " ", " ", " ", " "],
+      [" ", "*", "*", "*", " "],
+      [" ", " ", " ", " ", " "],
+      [" ", " ", " ", " ", " "],
+      [" ", " ", " ", " ", " "]
+    ])
   end
 end
