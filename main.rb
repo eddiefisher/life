@@ -34,7 +34,7 @@ end
 
 for i in %w[HUP INT QUIT TERM]
   if trap(i, "SIG_IGN") != 0 then
-    trap(i) {|sig| onsig(sig) }
+    trap(i) { |sig| onsig(sig) }
   end
 end
 

@@ -5,24 +5,8 @@ class World
     self.empty_cell = attrs[:empty_cell] || '.'
     self.live_cell = attrs[:live_cell] || '*'
     self.cells = []
-    self.rows = 20
-    self.cols = 40
 
-    if attrs[:map]
-      generate(attrs[:map])
-    else
-      self.cols = attrs[:cols] || cols
-      self.rows = attrs[:rows] || rows
-      init_cells
-    end
-  end
-
-  def init_cells
-    rows.times do
-      row = []
-      cols.times { row << empty_cell }
-      cells << row
-    end
+    generate(attrs[:map])
   end
 
   def draw
@@ -46,6 +30,16 @@ class World
         cur_col += 1
       end
       cur_row += 1
+    end
+  end
+
+  private
+
+  def init_cells
+    rows.times do
+      row = []
+      cols.times { row << empty_cell }
+      cells << row
     end
   end
 
