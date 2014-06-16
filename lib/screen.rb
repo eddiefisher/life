@@ -9,10 +9,8 @@ class Screen
     srand
     start_color
     
-    for i in %w[HUP INT QUIT TERM]
-      if trap(i, "SIG_IGN") != 0 then
-        trap(i) { |sig| onsig(sig) }
-      end
+    %w(HUP INT QUIT TERM).each do |i|
+      trap(i) { |sig| onsig(sig) } if trap(i, "SIG_IGN") != 0
     end
   end
   
