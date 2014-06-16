@@ -9,11 +9,13 @@ class World
     generate(attrs[:map])
   end
 
-  def draw
+  def draw(screen)
     ret = ''
-    cells.each do |row|
-      row.each { |cell| ret << (cell == live_cell ? live_cell : empty_cell) }
+    cells.each_with_index do |row, i|
+      string = row.each { |cell| ret << (cell == live_cell ? live_cell : empty_cell) }.join('')
+      screen.print(i, 1, string)
     end
+    screen.reload
   end
 
   def generate(map)
@@ -34,7 +36,6 @@ class World
   end
 
   private
-
   def init_cells
     rows.times do
       row = []

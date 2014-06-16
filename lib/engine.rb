@@ -1,11 +1,11 @@
-class Life
+class Engine
   attr_accessor :world
 
   def initialize(world)
     self.world = world
   end
 
-  def next_day
+  def next_generation
     new_cells = []
     cur_row = 0
     world.cells.each do |row|
