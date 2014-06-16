@@ -7,14 +7,10 @@ require 'lib/engine'
 describe Inhabitant do
   map = "*.**\n..*.\n*.**\n"
 
-  world = World.new(map: map)
+  world = World.new(map)
   screen = Screen.new
   engine = Engine.new(world, screen)
-  inhabitant = Inhabitant.new(
-    world: world,
-    row: 2,
-    col: 2
-  )
+  inhabitant = Inhabitant.new(world, 2, 2)
 
   it '.neighbour_count' do
     expect(inhabitant.neighbour_count).to eq(2)

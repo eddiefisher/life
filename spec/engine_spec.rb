@@ -7,7 +7,7 @@ require 'lib/world'
 describe Engine do
   map = "*.**.\n..*..\n*.**.\n"
 
-  world = World.new(map: map)
+  world = World.new(map)
   screen = Screen.new
   engine = Engine.new(world, screen)
 

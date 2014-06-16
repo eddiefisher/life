@@ -1,10 +1,10 @@
 class Inhabitant
   attr_accessor :row, :col, :cells, :world
 
-  def initialize(attrs = {})
-    @world = attrs[:world]
-    @row = attrs[:row]
-    @col = attrs[:col]
+  def initialize(world, row, col)
+    @world = world
+    @row = row
+    @col = col
   end
 
   def can_die?(cell, neighbours)

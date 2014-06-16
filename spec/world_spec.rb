@@ -5,7 +5,7 @@ require 'lib/world'
 describe World do
   map = "*.**\n..*.\n*.**\n"
 
-  world = World.new(map: map)
+  world = World.new(map)
 
   it "initialize world" do
     expect(world.map).to eq("*.**\n..*.\n*.**\n")

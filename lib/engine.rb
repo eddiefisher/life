@@ -29,11 +29,7 @@ class Engine
       cur_col = 0
       new_row = []
       row.each do |cell|
-        new_cell = Inhabitant.new(
-            world: @world,
-            row: cur_row,
-            col: cur_col
-          ).status(cell)
+        new_cell = Inhabitant.new(@world, cur_row, cur_col).status(cell)
         new_row << new_cell
         cur_col += 1
       end
