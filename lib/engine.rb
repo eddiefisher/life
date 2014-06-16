@@ -20,7 +20,6 @@ class Engine
       end
       cur_row += 1
     end
-    draw
   end
 
   def next_generation
@@ -42,10 +41,8 @@ class Engine
       cur_row += 1
     end
     @world.cells = new_cells
-    draw
   end
 
-  private
   def draw
     ret = ''
     @world.cells.each_with_index do |row, x|

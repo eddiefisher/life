@@ -2,10 +2,10 @@ class World
   attr_accessor :rows, :cols, :cells, :empty_cell, :live_cell, :map
 
   def initialize(attrs = {})
-    self.empty_cell = attrs[:empty_cell] || ' '
-    self.live_cell = attrs[:live_cell] || '*'
-    self.cells = []
-    self.map = attrs[:map]
+    @empty_cell = attrs[:empty_cell] || ' '
+    @live_cell = attrs[:live_cell] || '*'
+    @cells = []
+    @map = attrs[:map]
   end
 
   def init_cells
